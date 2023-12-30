@@ -4,10 +4,14 @@ import android.media.MediaCodecInfo.CodecProfileLevel
 import android.media.MediaCodecList
 import android.media.MediaFormat
 import android.os.Build
+import org.jellyfin.androidtv.preference.UserPreferences
+import org.koin.java.KoinJavaComponent.inject
 import timber.log.Timber
 
-class MediaCodecCapabilitiesTest {
+
+class MediaCodecCapabilitiesTest() {
 	private val mediaCodecList by lazy { MediaCodecList(MediaCodecList.REGULAR_CODECS) }
+	private val userPreferences: Lazy<UserPreferences> = inject(UserPreferences::class.java)
 
 	fun supportsAV1(): Boolean = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q &&
 		hasCodecForMime(MediaFormat.MIMETYPE_VIDEO_AV1)
@@ -19,9 +23,9 @@ class MediaCodecCapabilitiesTest {
 			CodecProfileLevel.AV1Level5
 		)
 
-	fun supportsHevc(): Boolean = hasCodecForMime(MediaFormat.MIMETYPE_VIDEO_HEVC)
+	fun supportsHevc(): Boolean = !userPreferences.value[UserPreferences.hevcDisabled] && hasCodecForMime(MediaFormat.MIMETYPE_VIDEO_HEVC)
 
-	fun supportsHevcMain10(): Boolean = hasDecoder(
+	fun supportsHevcMain10(): Boolean = !userPreferences.value[UserPreferences.hevcDisabled] && hasDecoder(
 		MediaFormat.MIMETYPE_VIDEO_HEVC,
 		CodecProfileLevel.HEVCProfileMain10,
 		CodecProfileLevel.HEVCMainTierLevel5

@@ -117,6 +117,11 @@ class UserPreferences(context: Context) : SharedPreferenceStore(
 		var dtsEnabled = booleanPreference("pref_bitstream_dts", false)
 
 		/**
+		 * Disable HEVC (temp workaround)
+		 */
+		var hevcDisabled = booleanPreference("pref_disable_hevc", DeviceUtils.isChromecastWithGoogleTV)
+
+		/**
 		 * Enable AC3
 		 */
 		var ac3Enabled = booleanPreference("pref_bitstream_ac3", !DeviceUtils.isFireTvStickGen1)

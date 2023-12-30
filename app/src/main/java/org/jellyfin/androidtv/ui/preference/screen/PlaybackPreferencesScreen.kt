@@ -107,6 +107,12 @@ class PlaybackPreferencesScreen : OptionsFragment() {
 				bind(userPreferences, UserPreferences.refreshRateSwitchingBehavior)
 				depends { DeviceUtils.is60() && userPreferences[UserPreferences.videoPlayer] != PreferredVideoPlayer.EXTERNAL }
 			}
+
+			checkbox {
+				setTitle(R.string.lbl_disable_hevc)
+				setContent(R.string.desc_disable_hevc)
+				bind(userPreferences, UserPreferences.hevcDisabled)
+			}
 		}
 
 		category {

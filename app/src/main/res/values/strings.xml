@@ -177,6 +177,7 @@
     <string name="lbl_new_premieres">New premieres</string>
     <string name="lbl_bitstream_ac3">Bitstream Dolby Digital audio</string>
     <string name="desc_bitstream_ac3">Requires capable hardware</string>
+    <string name="desc_disable_hevc">Some Android devices have flaky HEVC (h265) support. You can disable it as a workaround.</string>
     <string name="desc_audio_night_mode">Levels out audio volume automatically</string>
     <string name="lbl_zoom">Zoom</string>
     <string name="lbl_auto_crop">Auto crop</string>
@@ -195,6 +196,7 @@
     <string name="lbl_show_premieres">Show season premieres</string>
     <string name="desc_premieres">Show a row of new episode pilots for any series you watch</string>
     <string name="lbl_bitstream_dts">Bitstream DTS audio</string>
+    <string name="lbl_disable_hevc">Disable HEVC support</string>
     <string name="lbl_in_x_days">In %d days</string>
     <string name="lbl_select_date">Select date</string>
     <string name="lbl_just_this_once">Just this once</string>
